@@ -15,7 +15,7 @@ public class SpawnManagerX : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnRandomBall", startDelay);
+        InvokeRepeating("SpawnRandomBall", startDelay, 3.0f);
     }
 
     // Spawn random ball at random x position at top of play area
