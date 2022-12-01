@@ -221,6 +221,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &412787180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7209289378484717276, guid: 1c78c4fa2d708b844a57e1ffb1d3d722, type: 3}
+  m_PrefabInstance: {fileID: 7209289378440961241}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9738b5f8f06b514a9ce324f13135bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 7209289378484717276, guid: 1c78c4fa2d708b844a57e1ffb1d3d722, type: 3}
+  obstaclePrefab: {fileID: 412787180}
 --- !u!1 &835818919
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +595,7 @@ MonoBehaviour:
   jumpForce: 10
   gravityModifier: 2
   isOnGround: 1
+  gameOver: 0
 --- !u!54 &1962303296
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -604,7 +610,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 90
   m_CollisionDetection: 0
 --- !u!65 &1962303297
 BoxCollider:
