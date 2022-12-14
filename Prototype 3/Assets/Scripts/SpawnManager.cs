@@ -23,12 +23,9 @@ public class SpawnManager : MonoBehaviour
     }
     void SpawnObstacle()
     {
-        Debug.Log(playerControllerScript.gameOver);
         if (playerControllerScript.gameOver == false)
         {
-            Debug.Log("seriously, noy stupid");
             Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
         }
-
     }
 }
