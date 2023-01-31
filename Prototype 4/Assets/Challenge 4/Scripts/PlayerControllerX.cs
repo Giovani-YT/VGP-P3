@@ -49,6 +49,7 @@ public class PlayerControllerX : MonoBehaviour
         yield return new WaitForSeconds(powerUpDuration);
         hasPowerup = false;
         powerupIndicator.SetActive(false);
+        startCoroutine
     }
 
     // If Player collides with enemy
