@@ -20,5 +20,24 @@ public class PlayerController : MonoBehaviour
 
         playerRb.AddForce(Vector3.forward * speed * verticalInput);
         playerRb.AddForce(Vector3.right * speed * horizontalInput);
+        
+    }
+    void ConstrainPlayerPosition()
+        {
+            if(transform.position.z < -zBound)
+            {
+                tranform.position = new Vector3(transform.postion.x, transform.position.y, -zBound);
+            }
+            if(transform.position.z > zBound)
+            {
+                tranform.position = new Vector3(transform.position.x, transform.position.y, zBound);
+            }
+        }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
