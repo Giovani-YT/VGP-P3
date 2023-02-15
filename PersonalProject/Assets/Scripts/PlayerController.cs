@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private float speed = 10.0f;
     private Rigidbody playerRb;
+    private float zBound = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,18 +27,25 @@ public class PlayerController : MonoBehaviour
         {
             if(transform.position.z < -zBound)
             {
-                tranform.position = new Vector3(transform.postion.x, transform.position.y, -zBound);
+                transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
             }
             if(transform.position.z > zBound)
             {
-                tranform.position = new Vector3(transform.position.x, transform.position.y, zBound);
+                transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
             }
         }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Powerup"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
+        private void OnCollisionEnter(Collision collision)
+            {
+                if(collision.gameObject.CompareTag("Enemy"))
+                {
+                    Debug.Log("Player has collided with Enemy");
+                }
+            }
+        private void OnTriggerEnter(Collider other)
+            {
+                if(other.gameObject.CompareTag("Powerup"))
+                {
+                    Destroy(other.gameObject);
+                }
+            }
 }
