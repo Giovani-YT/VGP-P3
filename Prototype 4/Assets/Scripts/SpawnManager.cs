@@ -21,7 +21,8 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+            int randomEnemy = Random.Range(0, enemyPrefab.Length);
+            Instantiate(enemyPrefab[randomEnemy], GenerateSpawnPosition(), enemyPrefab[randomEnemy].transform.rotation);
         }
     }
     private Vector3 GenerateSpawnPosition ()
