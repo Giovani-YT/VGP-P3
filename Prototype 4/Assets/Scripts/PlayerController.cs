@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private GameObject tmpRocket;
     private Coroutine powerupCountdown;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,18 +37,19 @@ public class PlayerController : MonoBehaviour
         private void OnTriggerEnter(Collider other)
         {
             if(other.CompareTag("Powerup"))
-        {
-            hasPowerup = true;
-            currentPowerUp = other.gameObject.GetComponent<PowerUp>().powerUpType;
-            powerupIndicator.gameObject.SetActive(true);
-            Destroy(other.gameObject);
-            StartCoroutine(PowerupCountdownRoutine());
-            if(powerupCountdown != null)
             {
-                StopCoroutine(powerupCountdown);
-            }
-            powerupCountdown = StartCoroutine(PowerupCountdownRoutine());
-        }
+                hasPowerup = true;
+                currentPowerUp = other.gameObject.GetComponent<PowerUp>().powerUpType;
+                powerupIndicator.gameObject.SetActive(true);
+                Destroy(other.gameObject);
+                StartCoroutine(PowerupCountdownRoutine());
+                    if(powerupCountdown != null)
+                    {
+                        StopCoroutine(powerupCountdown);
+                    }
+                powerupCountdown = StartCoroutine(PowerupCountdownRoutine());
+            }  
+        } 
         IEnumerator PowerupCountdownRoutine()
             {
                 yield return new WaitForSeconds(7);
@@ -55,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 currentPowerUp = PowerUpType.None;
                 powerupIndicator.gameObject.SetActive(false);
             }
-        }
+        
         private void OnCollisionEnter(Collision collision)
         {
             if(collision.gameObject.CompareTag("Enemy") && currentPowerUp == PowerUpType.Pushback)
@@ -65,7 +67,8 @@ public class PlayerController : MonoBehaviour
                 enemyRigidbody.AddForce(awayFromPlayer * powerUpStrength, ForceMode.Impulse);
                 Debug.Log("Player collided with: " + collision.gameObject.name + "with powerup set to " + currentPowerUp.ToString());
             }
-        void LaunchRockets()
+        }
+        public void LaunchRockets()
         {
             foreach(var enemy in FindObjectsOfType<Enemy>())
             {
@@ -74,5 +77,6 @@ public class PlayerController : MonoBehaviour
                 tmpRocket.GetComponent<RocketBehaviour>().Fire(enemy.transform);
             }
         }
-    }
+
 }
+

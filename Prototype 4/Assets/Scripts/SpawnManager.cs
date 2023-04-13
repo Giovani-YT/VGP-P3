@@ -13,8 +13,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         int randomPowerup = Random.Range(0, powerupPrefabs.Length);
-        Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(),
-        powerupPrefabs[randomPowerup].transform.rotation);
+        Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(), powerupPrefabs[randomPowerup].transform.rotation);
         SpawnEnemyWave(waveNumber);
     }
 
@@ -28,8 +27,7 @@ public class SpawnManager : MonoBehaviour
             waveNumber++;
             SpawnEnemyWave(waveNumber);
             int randomPowerup = Random.Range(0, powerupPrefabs.Length);
-            Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(),
-            powerupPrefabs[randomPowerup].transform.rotation);
+            Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(), powerupPrefabs[randomPowerup].transform.rotation);
         }
     }
     void SpawnEnemyWave(int enemiesToSpawn)
