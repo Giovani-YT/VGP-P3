@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void StartGame(int difficulty)
-    {
+    {Debug.Log("poop");
         isGameActive = true;
         StartCoroutine(SpawnTarget());
         score = 0;
@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
         UpdateLives(3);
         titleScreen.gameObject.SetActive(false);
         spawnRate /= difficulty;
+        
     }
     void ChangePaused()
     {
